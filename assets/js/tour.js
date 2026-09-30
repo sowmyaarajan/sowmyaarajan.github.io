@@ -110,7 +110,12 @@
     var target = window.scrollY + r.top - nav - Math.max(0, (window.innerHeight - nav - Math.min(r.height, window.innerHeight * .7)) * .15);
     window.scrollTo({ top: Math.max(0, target), behavior: reduce ? 'auto' : 'smooth' });
   }
-  function advance() { if (i < STOPS.length - 1) go(i + 1); else end(); }
+  // At the career stop, wait for the girl to reach the last year before moving on
+  var hopPending = false, hopWaiting = false, hopTok = 0, HOP_REST = 2000, HOP_HOLD = 2500;
+  function advance() {
+    if (hopPending) { hopWaiting = true; return; }
+    if (i < STOPS.length - 1) go(i + 1); else end();
+  }
   function tick() {
     var used = dwell - left + (Date.now() - startedAt);
     bar.style.width = Math.min(100, used / dwell * 100) + '%';
@@ -128,10 +133,22 @@
     nEl.textContent = i + 1; textEl.textContent = STOPS[i][1];
     tour.classList.remove('is-new'); void tour.offsetWidth; tour.classList.add('is-new');
     light(STOPS[i][0]);
-    if (STOPS[i][0] === 'about' && window.HopLine) setTimeout(function () { window.HopLine.replay(); }, reduce ? 0 : 700);
+    var myHop = ++hopTok; hopPending = hopWaiting = false;
+    if (STOPS[i][0] === 'about' && window.HopLine) {
+      hopPending = true;
+      setTimeout(function () {
+        if (myHop !== hopTok) return;
+        window.HopLine.replay(function () {
+          if (myHop !== hopTok) return;
+          hopPending = false;
+          if (hopWaiting && !paused) { hopWaiting = false; clearTimeout(timer); timer = setTimeout(advance, HOP_HOLD); }
+        }, { rest: HOP_REST });
+      }, reduce ? 0 : 700);
+    }
     bar.style.width = '0%';
     // With sound, move on when the sentence has been spoken; without it, after a fixed pause
     dwell = soundOn && (synth || clips[i]) ? Math.max(4200, STOPS[i][1].split(' ').length * 390 + 900) : DWELL;
+    if (hopPending && !reduce) dwell = 2100 + 4 * (1300 + HOP_REST) + HOP_HOLD; // roughly how long her hops take
     schedule(dwell);
     var line = STOPS[i][1];
     speak(line, function () { if (!paused) timer = setTimeout(advance, clips[i] ? 600 : 900); });
@@ -143,13 +160,14 @@
     tour.querySelector('[data-tour="next"]').focus({ preventScroll: true });
   }
   function end() {
+    hopTok++; hopPending = hopWaiting = false;
     clearTimeout(timer); cancelAnimationFrame(raf); token++; stopAudio(); if (synth) synth.cancel();
     tour.hidden = true; document.documentElement.classList.remove('is-touring');
     if (lit) lit.classList.remove('is-toured');
     lit = null;
   }
   function togglePause() {
-    if (paused) { paused = false; pauseBtn.textContent = 'Pause'; if (soundOn && audio) { audio.play(); } else if (synth && soundOn) { if (synth.paused) synth.resume(); if (!synth.speaking) timer = setTimeout(advance, 900); } schedule(left); }
+    if (paused) { paused = false; pauseBtn.textContent = 'Pause'; if (hopWaiting && !hopPending) { hopWaiting = false; timer = setTimeout(advance, HOP_HOLD); } if (soundOn && audio) { audio.play(); } else if (synth && soundOn) { if (synth.paused) synth.resume(); if (!synth.speaking) timer = setTimeout(advance, 900); } schedule(left); }
     else {
       paused = true; pauseBtn.textContent = 'Play';
       left = Math.max(0, left - (Date.now() - startedAt));

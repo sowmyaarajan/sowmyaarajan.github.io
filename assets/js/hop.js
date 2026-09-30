@@ -8,6 +8,7 @@
   var girl = hop.querySelector('.hop__girl'), body = hop.querySelector('.hop__body'), list = hop.querySelector('.career');
   var items = Array.prototype.slice.call(hop.querySelectorAll('.career li'));
   var at = 0, busy = false, queue = [], started = false, curFly = null;
+  var rest = 380, onDone = null; // pause on each year, and who to tell when the last hop lands
   var sayEl = document.getElementById('hop-say');
   var SAY = [
     'I taught a voice assistant to understand people.',
@@ -76,7 +77,11 @@
     if (busy || !queue.length) return;
     busy = true;
     var to = queue.shift();
-    jump(to).then(function () { setTimeout(function () { busy = false; if (!queue.length) settle(); run(); }, 380); });
+    jump(to).then(function () { setTimeout(function () {
+      busy = false;
+      if (!queue.length) { settle(); var d = onDone; onDone = null; rest = 380; if (d) d(); }
+      run();
+    }, queue.length ? rest : 380); });
   }
   function goTo(i) {
     if (reduce) { at = i; visited = Math.max(visited, i); stand(i); mark(i, visited); say(i); return; }
@@ -94,12 +99,13 @@
   });
 
   // First time the line comes into view: 2017 → 2020 → 2021 → 2025
+  var autoTimer = 0, io = null;
   if (!reduce && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
+    io = new IntersectionObserver(function (es) {
       if (!es[0].isIntersecting || started) return;
       started = true; io.disconnect();
       say(0);
-      setTimeout(function () { hush(); for (var k = 1; k < items.length; k++) queue.push(k); run(); }, 1600);
+      autoTimer = setTimeout(function () { hush(); for (var k = 1; k < items.length; k++) queue.push(k); run(); }, 1600);
     }, { threshold: 0.6 });
     io.observe(hop);
   }
@@ -116,10 +122,12 @@
   window.addEventListener('resize', settle);
   window.addEventListener('orientationchange', settle);
   // Used by the guided tour: start again from 2017 and hop through every year
-  window.HopLine = { replay: function () {
-    started = true; queue = [];
-    if (reduce) { goTo(items.length - 1); return; }
-    var go = function () { at = 0; visited = 0; stand(0); mark(0, 0); say(0); for (var k = 1; k < items.length; k++) queue.push(k); setTimeout(function () { hush(); run(); }, 1400); };
+  // done() runs once she has landed on the last year; opts.rest is how long she stays on each year
+  window.HopLine = { replay: function (done, opts) {
+    started = true; queue = []; clearTimeout(autoTimer); if (io) io.disconnect(); // the tour takes over from the first-view hop
+    if (reduce) { goTo(items.length - 1); if (done) done(); return; }
+    onDone = null;
+    var go = function () { rest = (opts && opts.rest) || 380; onDone = done || null; at = 0; visited = 0; stand(0); mark(0, 0); say(0); for (var k = 1; k < items.length; k++) queue.push(k); setTimeout(function () { hush(); run(); }, 1400); };
     if (busy) setTimeout(go, 1500); else go();
   } };
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (!busy) { stand(at); mark(at, visited); } });
