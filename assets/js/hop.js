@@ -11,6 +11,7 @@
   var sayEl = document.getElementById('hop-say');
   var SAY = [
     'I taught a voice assistant to understand people.',
+    'Then a master’s in Paris, on a scholarship.',
     'Research time: the Turing Institute, SAP Labs and UC Santa Barbara.',
     'At UiPath, AI that reads documents and emails for big companies.',
     'Today I build AI agents that do real work.'
