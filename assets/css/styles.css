@@ -1362,3 +1362,36 @@ dialog.demo[open] { animation: demoIn .3s cubic-bezier(.2, .7, .2, 1); }
 #tour-sound { display: inline-flex; align-items: center; gap: .4rem; }
 #tour-sound.is-off { color: var(--muted); }
 #tour-sound.is-off .tour__wave { display: none; }
+
+/* ---------- v6: phone polish, tour controls ---------- */
+.tour__ctl button { display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; }
+#tour-pause { min-width: 5.4rem; } /* Pause and Play take the same space, so nothing shifts */
+@media (max-width: 640px) {
+  .tour__girl { display: none; }
+  .tour__ctl { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px 44px auto; gap: .4rem; }
+  .tour__ctl button { min-height: 44px; padding: 0 .7rem; }
+  .tour__ctl .tour__x { margin-left: 0; }
+  #tour-sound { padding: 0; }
+  #tour-sound > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .is-toured::after { inset: -8px -10px; border-radius: 22px; }
+
+  .who__cta { display: grid; gap: .7rem; }
+  .who__cta .btn { width: 100%; justify-content: center; }
+  .who__cta .tour-btn { justify-self: center; }
+
+  .proj { padding: .75rem .75rem 1.5rem; border-radius: 20px; }
+  .proj__num { padding: 1.3rem; }
+  .proj__story { padding-inline: .55rem; }
+
+  .tools { grid-template-columns: 1fr 1fr; gap: .7rem; }
+  .tool { padding: 1rem .95rem; gap: .45rem; border-radius: 16px; }
+  .tool__top i { width: 22px; height: 22px; }
+  .tool__top .meta { font-size: .62rem; letter-spacing: .02em; text-align: right; }
+  .tool b { font-size: 1.02rem; line-height: 1.25; }
+  .tool > span:nth-of-type(2) { font-size: .86rem; line-height: 1.45; }
+
+  .hop__say, .hop__say.is-on { transform: translate(-10px, calc(-100% - 12px)); transform-origin: 10px 100%; }
+  .hop__say:not(.is-on) { transform: translate(-10px, calc(-100% - 12px)) scale(.9); }
+  .hop__say::after { left: 10px; }
+}
+@media (max-width: 350px) { .tools { grid-template-columns: 1fr; } }

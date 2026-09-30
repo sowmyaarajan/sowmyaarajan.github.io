@@ -62,6 +62,7 @@
         }
         var dur = Math.min(900, 480 + dist * 0.9);
         girl.classList.add('is-air'); hush();
+        hop.dispatchEvent(new CustomEvent('hop:jump', { detail: to })); // lets the tour keep her in view
         var fly = girl.animate(frames, { duration: dur, easing: 'cubic-bezier(.35,.1,.45,1)', fill: 'forwards' });
         curFly = fly;
         fly.finished.then(function () {

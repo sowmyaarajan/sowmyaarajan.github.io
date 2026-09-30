@@ -12,7 +12,7 @@
     ['case-mining', 'Project two: AI sorts a mining company’s repair requests, and a supervisor still has the final say.'],
     ['case-media', 'Project three: an ad planner tells an AI what to change, in plain words, and it redoes the plan.'],
     ['tools', 'I also build tools. Tap any of these cards to play with a small demo.'],
-    ['about', 'And this is how I got here. Watch me hop through the years!'],
+    ['about', 'And this is how I got here. Watch me hop through the years!', 'hop'],
     ['contact', 'That’s the tour. If you’d like to talk, my email is right here.']
   ];
   var DWELL = 7500;
@@ -42,47 +42,37 @@
     soundBtn.lastChild.textContent = soundOn ? 'Sound on' : 'Sound off';
     soundBtn.classList.toggle('is-off', !soundOn);
   }
-  /* ---------- Sowmya's own voice: assets/audio/tour-N.webm (or .m4a), used whenever a clip exists ---------- */
-  var clips = [], clipsChecked = false, audio = null;
-  function checkClips() {
-    if (clipsChecked) return Promise.resolve();
-    clipsChecked = true;
-    return Promise.all(STOPS.map(function (_, k) {
-      var try1 = function (ext) { return fetch('assets/audio/tour-' + (k + 1) + '.' + ext, { method: 'HEAD' }).then(function (r) { return r.ok ? 'assets/audio/tour-' + (k + 1) + '.' + ext : null; }).catch(function () { return null; }); };
-      return try1('webm').then(function (u) { return u || try1('m4a'); }).then(function (u) { clips[k] = u; if (u) return measure(k, u); });
-    }));
+  /* ---------- Sowmya's own voice: assets/audio/tour-N.m4a (or .webm) ----------
+     One audio element for the whole tour. Phones only allow sound that starts from a tap,
+     so the first clip starts inside the tap on "Take the tour", and every later clip reuses
+     that same, already-allowed element. */
+  var player = new Audio(), audio = null, watch = 0;
+  player.preload = 'auto';
+  var ext = player.canPlayType('audio/mp4; codecs="mp4a.40.2"') ? 'm4a' : (player.canPlayType('audio/webm; codecs="opus"') ? 'webm' : '');
+  var clips = STOPS.map(function (_, k) { return ext ? 'assets/audio/tour-' + (k + 1) + '.' + ext : null; });
+  function stopAudio() {
+    clearTimeout(watch);
+    player.onended = player.onerror = player.onplaying = null;
+    if (audio) player.pause();
+    audio = null;
   }
-  // Find where the speech starts and ends in each clip, so the tour skips quiet lead-ins and moves on right after the last word
-  var spans = [];
-  function measure(k, url) {
-    var AC = window.OfflineAudioContext || window.webkitOfflineAudioContext;
-    if (!AC) return;
-    return fetch(url).then(function (r) { return r.arrayBuffer(); }).then(function (buf) {
-      return new AC(1, 44100, 44100).decodeAudioData(buf);
-    }).then(function (a) {
-      var d = a.getChannelData(0), n = d.length, th = 0.02, s0 = 0, s1 = n - 1;
-      while (s0 < n && Math.abs(d[s0]) < th) s0++;
-      while (s1 > 0 && Math.abs(d[s1]) < th) s1--;
-      spans[k] = { start: Math.max(0, s0 / a.sampleRate - 0.15), end: Math.min(a.duration, s1 / a.sampleRate + 0.35) };
-    }).catch(function () {});
-  }
-  function stopAudio() { if (audio) { audio.onended = audio.onerror = audio.ontimeupdate = null; audio.pause(); audio = null; } }
-  // Say one line; call done when it has been spoken (with a safety net if the engine never reports the end)
+  // Say one line; call done when it has been spoken (with a safety net if nothing reports the end)
   function speak(text, done) {
     var my = ++token;
     stopAudio();
     if (!soundOn) return false;
     if (clips[i]) {
-      var a = audio = new Audio(clips[i]), fell = false;
-      var fallback = function () { if (fell || my !== token) return; fell = true; audio = null; speakSynth(text, done, my); };
-      var span = spans[i], ended = false, finishClip = function () { if (ended || my !== token) return; ended = true; a.pause(); done(); };
-      a.onended = finishClip;
-      if (span) {
-        a.addEventListener('loadedmetadata', function () { try { a.currentTime = span.start; } catch (e) {} }, { once: true });
-        a.ontimeupdate = function () { if (a.currentTime >= span.end) finishClip(); };
-      }
-      a.onerror = fallback;
-      var pr = a.play(); if (pr && pr.catch) pr.catch(fallback);
+      var over = false;
+      var finish = function () { if (over || my !== token) return; over = true; clearTimeout(watch); audio = null; done(); };
+      var fallback = function () { if (over || my !== token) return; over = true; clearTimeout(watch); player.pause(); audio = null; if (!speakSynth(text, done, my)) done(); };
+      audio = player;
+      player.onended = finish;
+      player.onerror = fallback;
+      // If the clip has not started within 4 s (blocked or stuck), use the browser voice instead
+      watch = setTimeout(fallback, 4000);
+      player.onplaying = function () { clearTimeout(watch); watch = setTimeout(finish, 16000); };
+      player.src = clips[i];
+      var pr = player.play(); if (pr && pr.catch) pr.catch(fallback);
       return true;
     }
     return speakSynth(text, done, my);
@@ -101,11 +91,14 @@
   }
   ofEl.textContent = STOPS.length;
 
-  function light(id) {
+  function light(id, focusId) {
     if (lit) lit.classList.remove('is-toured');
     lit = document.getElementById(id);
     if (!lit) return;
     lit.classList.add('is-toured');
+    // On phones, aim at the part that matters (e.g. the career line), leaving room for her speech bubble
+    var f = focusId && window.innerWidth <= 820 ? document.getElementById(focusId) : null;
+    if (f) { window.scrollTo({ top: Math.max(0, window.scrollY + f.getBoundingClientRect().top - 76 - 110), behavior: reduce ? 'auto' : 'smooth' }); return; }
     var r = lit.getBoundingClientRect(), nav = 76;
     var target = window.scrollY + r.top - nav - Math.max(0, (window.innerHeight - nav - Math.min(r.height, window.innerHeight * .7)) * .15);
     window.scrollTo({ top: Math.max(0, target), behavior: reduce ? 'auto' : 'smooth' });
@@ -132,7 +125,7 @@
     i = Math.max(0, Math.min(STOPS.length - 1, k));
     nEl.textContent = i + 1; textEl.textContent = STOPS[i][1];
     tour.classList.remove('is-new'); void tour.offsetWidth; tour.classList.add('is-new');
-    light(STOPS[i][0]);
+    light(STOPS[i][0], STOPS[i][2]);
     var myHop = ++hopTok; hopPending = hopWaiting = false;
     if (STOPS[i][0] === 'about' && window.HopLine) {
       hopPending = true;
@@ -156,7 +149,8 @@
   function start() {
     paused = false; pauseBtn.textContent = 'Pause';
     tour.hidden = false; document.documentElement.classList.add('is-touring');
-    checkClips().then(function () { go(0); });
+    if (synth && soundOn && !clips[0]) synth.speak(new SpeechSynthesisUtterance('')); // wakes speech on phones
+    go(0);
     tour.querySelector('[data-tour="next"]').focus({ preventScroll: true });
   }
   function end() {
@@ -167,14 +161,23 @@
     lit = null;
   }
   function togglePause() {
-    if (paused) { paused = false; pauseBtn.textContent = 'Pause'; if (hopWaiting && !hopPending) { hopWaiting = false; timer = setTimeout(advance, HOP_HOLD); } if (soundOn && audio) { audio.play(); } else if (synth && soundOn) { if (synth.paused) synth.resume(); if (!synth.speaking) timer = setTimeout(advance, 900); } schedule(left); }
+    if (paused) { paused = false; pauseBtn.textContent = 'Pause'; if (hopWaiting && !hopPending) { hopWaiting = false; timer = setTimeout(advance, HOP_HOLD); } if (soundOn && audio) { player.play(); } else if (synth && soundOn) { if (synth.paused) synth.resume(); if (!synth.speaking) timer = setTimeout(advance, 900); } schedule(left); }
     else {
       paused = true; pauseBtn.textContent = 'Play';
       left = Math.max(0, left - (Date.now() - startedAt));
       clearTimeout(timer); cancelAnimationFrame(raf);
-      if (audio) audio.pause(); else if (synth && synth.speaking) synth.pause();
+      clearTimeout(watch); // the clip's safety net restarts when it plays again
+      if (audio) player.pause(); else if (synth && synth.speaking) synth.pause();
     }
   }
+  // On phones the career line is taller than the space above this panel, so follow her down it
+  var hopEl = document.getElementById('hop');
+  if (hopEl) hopEl.addEventListener('hop:jump', function (e) {
+    if (tour.hidden || STOPS[i][0] !== 'about' || window.innerWidth > 820) return;
+    var li = hopEl.querySelectorAll('.career li')[e.detail]; if (!li) return;
+    var top = li.getBoundingClientRect().top, room = window.innerHeight - tour.offsetHeight - 40;
+    if (top > room - 120 || top < 76 + 110) window.scrollTo({ top: Math.max(0, window.scrollY + top - 76 - 130), behavior: reduce ? 'auto' : 'smooth' });
+  });
   document.querySelectorAll('[data-tour-start]').forEach(function (b) { b.addEventListener('click', start); });
   tour.addEventListener('click', function (e) {
     var b = e.target.closest('[data-tour]'); if (!b) return;
