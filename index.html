@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sowmya Rajan · Senior Forward Deployed Engineer (AI)</title>
+<meta name="description" content="Sowmya Rajan builds AI agents that do real work inside big companies: the problem, what she did and what changed, with demos you can try.">
+<link rel="canonical" href="https://sowmyaarajan.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sowmyaarajan.github.io/">
+<meta property="og:title" content="Sowmya Rajan · Senior Forward Deployed Engineer (AI)">
+<meta property="og:description" content="I get AI systems working in the real world. Case studies, engineering systems and how I work.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0a0d12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317191d'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%23f6f4ef' text-anchor='middle'%3ESR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500;600&family=Instrument+Serif:ital@1&display=swap">
+<script>try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/styles.css?v=v5">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sowmya Rajan",
+  "jobTitle": "Senior Forward Deployed Engineer",
+  "worksFor": { "@type": "Organization", "name": "UiPath" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Bangalore", "addressCountry": "IN" },
+  "url": "https://sowmyaarajan.github.io/",
+  "sameAs": ["https://www.linkedin.com/in/sowmyarajan1703/", "https://github.com/sowmyaarajan"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="nav__name" href="#top">Sowmya Rajan</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false"><span aria-hidden="true"></span></button>
+    <a class="btn nav__cta" href="resume/">Résumé</a>
+    <button class="btn nav__menu" id="menu-open" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+
+<div class="sheet-menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="sheet-menu__top">
+    <span class="nav__name">Sowmya Rajan</span>
+    <button class="btn" id="menu-close" type="button">Close</button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="#work">Work</a>
+    <a href="#tools">Tools</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="sheet-menu__foot">
+    <a class="btn btn--primary" href="resume/">Résumé</a>
+    <a class="btn" href="mailto:sowmya.9507@gmail.com">Email</a>
+    <button class="btn" type="button" data-theme-toggle aria-pressed="false">Light theme</button>
+  </div>
+</div>
+
+<main id="main">
+  <!-- 1 · Who -->
+  <section class="who wrap" id="top" aria-labelledby="h-hero">
+    <div class="who__copy">
+      <p class="who__hi"><svg class="girl" viewBox="0 0 48 64" width="66" height="88" aria-hidden="true">
+          <path class="g-hair" d="M17.5 9.5c-4.8.6-7.6 4.6-7.4 9.6.2 4.2-1.4 7.4-3.6 9.2 4.8.4 8.8-2.2 10.2-6.6 1.2-3.6.8-7.6 2.4-10.6z"/>
+          <path class="g-limb" d="M20.6 44.2v12.6M27.4 44.2v12.6"/>
+          <path class="g-shoe" d="M18.4 57.4h4.6v2.4h-5.2c-.9 0-1.2-.6-1.2-1.2 0-.7.7-1.2 1.8-1.2zM25.2 57.4h4.6c1.1 0 1.8.5 1.8 1.2 0 .6-.3 1.2-1.2 1.2h-5.2z"/>
+          <path class="g-skin" d="M22.2 18.6h3.6v3.4h-3.6z"/>
+          <path class="g-dress" d="M18.2 21.4h11.6l5.2 22.8H13z"/>
+          <path class="g-limb g-wave" d="M18.8 23.2l-5.6 9.4"/>
+          <path class="g-limb" d="M29.2 23.2l5.4 6.8"/>
+          <rect class="g-laptop" x="32.2" y="24.6" width="11" height="8" rx="1.2" transform="rotate(-16 37.7 28.6)"/>
+          <circle class="g-skin" cx="24" cy="12" r="7.6"/>
+          <path class="g-hair" d="M16.4 12.2c-.4-5.2 3-9 7.6-9 4.4 0 7.8 3.2 7.8 7.6-2.6-.4-5.4-1.8-7-3.8-1.2 2.6-4.6 4.6-8.4 5.2z"/>
+          <circle class="g-eye" cx="27.2" cy="12.6" r=".95"/>
+          <path class="g-smile" d="M25.6 15.6c.9.7 2.1.7 3 .1"/>
+        </svg><span>Hi, I’m Sowmya.</span></p>
+      <h1 class="who__h" id="h-hero">I help big companies get AI to <span>actually work.</span></h1>
+      <p class="who__p">I build AI agents at UiPath: AI that doesn’t just answer questions, it gets work done, like sorting requests or drafting a plan. I go into big companies, work with their team, and stay until the agents are doing real work, with a person still approving the decisions that matter.</p>
+      <div class="who__cta">
+        <a class="btn btn--primary btn--pill" href="#work">See what I’ve done <span aria-hidden="true">↓</span></a>
+        <a class="btn btn--pill" href="mailto:sowmya.9507@gmail.com">Email me</a>
+        <button class="tour-btn" type="button" data-tour-start><span class="tour-btn__play" aria-hidden="true"></span>Take the 60-second tour</button>
+      </div>
+    </div>
+    <ul class="who__facts" aria-label="Quick facts">
+      <li style="--c: var(--st-ingest)"><i aria-hidden="true"></i><span><b class="big">15+</b><span>large companies helped since 2021</span></span></li>
+      <li style="--c: var(--st-reason)"><i aria-hidden="true"></i><span><b>Insurance, banks, shops, airlines, mining</b><span>different worlds, same kind of problem</span></span></li>
+      <li style="--c: var(--st-review)"><i aria-hidden="true"></i><span><b>Bangalore · before: Samsung, research in Paris</b><span>with The Alan Turing Institute, SAP Labs and UC Santa Barbara</span></span></li>
+    </ul>
+  </section>
+
+  <!-- 2 · What I do -->
+  <section class="band wrap" id="do" aria-labelledby="h-do">
+    <div class="band__head"><h2 id="h-do">What I actually do.</h2><span class="note">in three steps</span></div>
+    <ol class="steps">
+      <li style="--c: var(--st-ingest)"><span class="steps__dot">1</span><b>Listen</b><span>A company has a messy, real problem. I sit with the people who deal with it every day, until I understand it better than the brief does.</span></li>
+      <li style="--c: var(--st-reason)"><span class="steps__dot">2</span><b>Build</b><span>I design AI agents and automation that fit their data, their software and the way they work, and build them with their team.</span></li>
+      <li style="--c: var(--st-review)"><span class="steps__dot">3</span><b>Make it real</b><span>It goes live and does real work. A person still approves the important decisions, and the team knows how it works after I leave.</span></li>
+    </ol>
+    <p class="eng"><span>For engineers</span> Agentic automation, forward deployed: discovery, solution architecture, LLM agents that plan and act across tools, automation, enterprise integration (SAP, documents, email), human-in-the-loop review, validation and release.</p>
+  </section>
+
+  <!-- 3 · Work -->
+  <section class="band wrap" id="work" aria-labelledby="h-work">
+    <div class="band__head"><h2 id="h-work">Three real projects.</h2><p>Each one told the same way: the problem, what I did, what changed. Client names are kept private.</p></div>
+    
+      <article class="proj" id="case-shipping" style="--sc: var(--st-ingest)" aria-labelledby="case-shipping-h">
+        <div class="proj__num">
+          <span class="meta">Global shipping company · 2026</span>
+          <p class="proj__big"><b>231</b><span>hidden copies of one silent mistake, found by searching for its whole family</span></p>
+          <button class="proj__try" type="button" data-demo="demo-inv">Watch the investigation <span aria-hidden="true">▸</span></button>
+        </div>
+        <div class="proj__story">
+          <p class="proj__id"><span class="proj__letter">A</span><span class="role role--built">Built</span><span class="meta">I did the engineering myself</span></p>
+          <h3 id="case-shipping-h">The invoice robot that was quietly getting sums wrong.</h3>
+          <dl class="proj__beats">
+            <div><dt>The problem</dt><dd>A robot that makes invoices in 37 countries had been moved from one automation tool to another. Only about 1 in 10 of its 337 parts had ever been checked.</dd></div>
+            <div><dt>What I did</dt><dd>I ran it for real instead of just reading the code. In three weeks I found and fixed 20 mistakes, and noticed they were only 9 kinds.</dd></div>
+            <div class="is-out"><dt>What changed</dt><dd>The robot runs from start to finish. One kind of mistake was hiding in 231 places, putting wrong amounts on invoices without any error. Now the team can fix each kind everywhere at once.</dd></div>
+          </dl>
+          <p class="eng"><span>For engineers</span> Migration between automation platforms · 20 defects → 9 defect classes · one class with 231 instances of silent data corruption that passed functional tests.</p>
+        </div>
+      </article>
+      <article class="proj" id="case-mining" style="--sc: var(--st-reason)" aria-labelledby="case-mining-h">
+        <div class="proj__num">
+          <span class="meta">Global mining company · 2026</span>
+          <p class="proj__big"><b>7</b><span>versions delivered, and three of five parts now being tested by the people who will use them</span></p>
+          <button class="proj__try" type="button" data-demo="demo-req">Try being the supervisor <span aria-hidden="true">▸</span></button>
+        </div>
+        <div class="proj__story">
+          <p class="proj__id"><span class="proj__letter">B</span><span class="role role--owned">Owned</span><span class="meta">I designed it and was responsible for it working</span></p>
+          <h3 id="case-mining-h">The mining company flooded with repair requests.</h3>
+          <dl class="proj__beats">
+            <div><dt>The problem</dt><dd>Workers send repair requests all day, in English and Spanish. Many are unclear or sent twice, and supervisors were spending time on requests that should never have reached them.</dd></div>
+            <div><dt>What I did</dt><dd>I designed a system where AI agents check how clear each request is and spot repeats, even in different words. A supervisor still gives the final yes before any repair is ordered.</dd></div>
+            <div class="is-out"><dt>What changed</dt><dd>Seven versions delivered. Three of the five parts are being tested by the real supervisors, who now have their own dashboard.</dd></div>
+          </dl>
+          <p class="eng"><span>For engineers</span> Solution architecture and design documents · LLM quality scoring · semantic duplicate detection (reject / flag / approve) · human-in-the-loop approval · SAP integration.</p>
+        </div>
+      </article>
+      <article class="proj" id="case-media" style="--sc: var(--st-extract)" aria-labelledby="case-media-h">
+        <div class="proj__num">
+          <span class="meta">Global media agency · 2026</span>
+          <p class="proj__big"><b>18</b><span>page plain-language guide, so business and governance teams could understand the AI too</span></p>
+          <button class="proj__try" type="button" data-demo="demo-ha">Try talking to the agent <span aria-hidden="true">▸</span></button>
+        </div>
+        <div class="proj__story">
+          <p class="proj__id"><span class="proj__letter">C</span><span class="role role--advised">Advised</span><span class="meta">I guided the team that builds it</span></p>
+          <h3 id="case-media-h">The ad planner who talks to an AI.</h3>
+          <dl class="proj__beats">
+            <div><dt>The problem</dt><dd>Planners split a client’s advertising money between TV, online, print and video, and they usually start from scratch, by hand.</dd></div>
+            <div><dt>What I did</dt><dd>I designed how an AI agent writes the first plan, then changes it when the planner simply says what they want, like “move money from print to video, keep the total”.</dd></div>
+            <div class="is-out"><dt>What changed</dt><dd>A partner company is building it, based on the architecture I proposed, the technical details and the guide I wrote.</dd></div>
+          </dl>
+          <p class="eng"><span>For engineers</span> Agent architecture · human feedback loop · revisions that respect constraints (a fixed total) · technical annex for the implementation partner.</p>
+        </div>
+      </article>
+  </section>
+
+  <!-- 4 · Learned -->
+  <section class="band wrap" id="learned" aria-labelledby="h-learned">
+    <div class="band__head"><h2 id="h-learned">Three things I’ve learned.</h2></div>
+    <div class="lessons">
+      <div style="--c: var(--st-ingest)"><b>“Working” is not the same as “right”.</b><span>The most dangerous mistake I found never showed an error. It quietly put wrong amounts on invoices.</span></div>
+      <div style="--c: var(--st-reason)"><b>Fix the family, not just the bug.</b><span>When 20 mistakes turn out to be 9 kinds, you fix each kind everywhere at once.</span></div>
+      <div style="--c: var(--st-review)"><b>Keep a person in charge.</b><span>AI agents do the sorting and drafting. A person makes the call wherever a wrong answer would be costly.</span></div>
+    </div>
+  </section>
+
+  <!-- 5 · Tools -->
+  <section class="band wrap" id="tools" aria-labelledby="h-tools">
+    <div class="band__head"><h2 id="h-tools">Tools I’ve built.</h2><p>Some for my team, some just for fun. Each one has a small demo you can play with.</p></div>
+    <div class="tools">
+        <button class="tool" type="button" data-tool="ixp" style="--c: var(--st-extract)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">for my team</span></span><b>IXP Document Wrapper</b><span>Turns almost any file into neat data an AI can use.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+        <button class="tool" type="button" data-tool="visionai" style="--c: var(--st-extract)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">for my team</span></span><b>VisionAI</b><span>Shows, step by step, how an AI reads a document.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+        <button class="tool" type="button" data-tool="memory" style="--c: var(--st-review)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">for my team</span></span><b>Agent Memory</b><span>Teaches an AI agent to remember an answer instead of asking twice.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+        <button class="tool" type="button" data-tool="maestro" style="--c: var(--st-review)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">for my team</span></span><b>Maestro case flow</b><span>A ready-made example of a complete repair job, from start to finish.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+        <button class="tool" type="button" data-tool="cortex" style="--c: var(--st-reason)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">hackweek 2026</span></span><b>Automation Cortex</b><span>Warns you which automations will break before you change them.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+        <button class="tool" type="button" data-tool="flowlens" style="--c: var(--st-reason)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">hackweek 2026</span></span><b>FlowLens</b><span>Offers the right fix for what is on your screen, with one shortcut.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+        <button class="tool" type="button" data-tool="clausage" style="--c: var(--st-ingest)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">just for fun</span></span><b>Clausage Bar</b><span>Shows how much of my AI assistant allowance I have used.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+        <button class="tool" type="button" data-tool="halwa" style="--c: var(--st-ingest)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">just for fun</span></span><b>HalwaShare</b><span>Sends any file straight to the phone next to you. No upload.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+        <button class="tool" type="button" data-tool="gapscout" style="--c: var(--st-ingest)"><span class="tool__top"><i aria-hidden="true"></i><span class="meta">just for fun</span></span><b>GapScout</b><span>Finds problems lots of developers want solved but nobody has built.</span><span class="tool__try">Try it <span aria-hidden="true">▸</span></span></button>
+    </div>
+  </section>
+
+  <!-- 6 · About -->
+  <section class="band wrap about3" id="about" aria-labelledby="h-about">
+    <div class="about3__copy">
+      <h2 id="h-about">How I got here.</h2>
+      <p>I started by preparing the examples that teach Samsung’s voice assistant, Bixby, to understand people. A master’s in Paris took me into research. At UiPath I spent three years building AI that reads documents and emails for large companies, and since 2025 I build AI agents with customers, on their side.</p>
+      <p class="meta">Master’s in Digital Sciences, Université Paris Descartes (€20,000 EURIP scholarship) · B.E. Electrical and Electronics Engineering, VTU</p>
+      <p class="note">tap a year and I’ll hop there</p>
+    </div>
+    <div>
+        <div class="hop" id="hop">
+          <ol class="career" aria-label="Career progression">
+            <li style="--c: var(--st-ingest)"><button class="yr" type="button" aria-label="2017: jump to Samsung R&amp;D Institute">2017</button><b>Samsung R&amp;D Institute</b><span>AI Data Specialist, Bixby</span><span class="arc">taught a voice assistant</span></li>
+            <li style="--c: var(--st-extract)"><button class="yr" type="button" aria-label="2020: jump to research and internships">2020</button><b>Turing · SAP Labs · UCSB · DNE</b><span>Research and internships</span><span class="arc">Research</span></li>
+            <li style="--c: var(--st-reason)"><button class="yr" type="button" aria-label="2021: jump to UiPath, Applied Scientist">2021</button><b>UiPath</b><span>Applied Scientist</span><span class="arc">AI for real companies</span></li>
+            <li style="--c: var(--st-ship)"><button class="yr" type="button" aria-label="2025: jump to UiPath, Senior Forward Deployed Engineer">2025</button><b>UiPath</b><span>Senior Forward Deployed Engineer</span><span class="arc">AI agents, on the customer’s side</span></li>
+          </ol>
+          <p class="hop__say" id="hop-say" aria-live="polite"></p>
+          <span class="hop__girl" aria-hidden="true"><span class="hop__body">
+            <svg viewBox="0 0 48 64" width="54" height="72">
+              <path class="hop__tail" d="M17.5 9.5c-4.8.6-7.6 4.6-7.4 9.6.2 4.2-1.4 7.4-3.6 9.2 4.8.4 8.8-2.2 10.2-6.6 1.2-3.6.8-7.6 2.4-10.6z"/>
+              <path class="hop__skin hop__limb" d="M20.6 44.2v12.6M27.4 44.2v12.6"/>
+              <path class="hop__shoe" d="M18.4 57.4h4.6v2.4h-5.2c-.9 0-1.2-.6-1.2-1.2 0-.7.7-1.2 1.8-1.2zM25.2 57.4h4.6c1.1 0 1.8.5 1.8 1.2 0 .6-.3 1.2-1.2 1.2h-5.2z"/>
+              <path class="hop__skin hop__neck" d="M22.2 18.6h3.6v3.4h-3.6z"/>
+              <path class="hop__dress" d="M18.2 21.4h11.6l5.2 22.8H13z"/>
+              <path class="hop__belt" d="M16.8 29.4h14.4"/>
+              <path class="hop__skin hop__limb hop__arm--l" d="M18.8 23.2l-5.6 9.4"/>
+              <path class="hop__skin hop__limb hop__arm--r" d="M29.2 23.2l5.4 6.8"/>
+              <g class="hop__laptop"><rect x="32.2" y="24.6" width="11" height="8" rx="1.2" transform="rotate(-16 37.7 28.6)"/><path class="hop__screen" d="M34.4 27.6l6.6-1.9" /></g>
+              <circle class="hop__skin hop__head" cx="24" cy="12" r="7.6"/>
+              <path class="hop__hair" d="M16.4 12.2c-.4-5.2 3-9 7.6-9 4.4 0 7.8 3.2 7.8 7.6-2.6-.4-5.4-1.8-7-3.8-1.2 2.6-4.6 4.6-8.4 5.2z"/>
+              <circle class="hop__eye" cx="27.2" cy="12.6" r=".95"/>
+              <path class="hop__smile" d="M25.6 15.6c.9.7 2.1.7 3 .1"/>
+            </svg>
+          </span><span class="hop__shadow"></span></span>
+        </div>
+    </div>
+  </section>
+
+  <!-- Recognition -->
+  <section class="band wrap" id="recognition" aria-labelledby="h-recog">
+    <div class="band__head"><h2 id="h-recog">Talks and recognition.</h2></div>
+    <ul class="recog3">
+      <li style="--c: var(--st-reason)"><span class="meta">UiPath community</span><b>Speaker on AI that reads emails and messages, and on generative AI</b><span>at community events including GenAI Automation Pathshala and the UiPath Adelaide Chapter</span></li>
+      <li style="--c: var(--st-extract)"><span class="meta">CC Global Summit 2021</span><b>Presented AutSPACEs</b><span>a citizen-science platform for the autism community, with The Alan Turing Institute and Autistica</span></li>
+      <li style="--c: var(--st-ingest)"><span class="meta">71st ICA Conference</span><b>Co-wrote a research abstract</b><span>on using computers to read 42,306 movie plots and link characters’ morality to how well stories do</span></li>
+      <li style="--c: var(--st-review)"><span class="meta">Samsung R&amp;D Institute</span><b>Spot Award</b><span>for outstanding contribution to vocabulary review for Bixby</span></li>
+    </ul>
+  </section>
+
+  <!-- 7 · Contact -->
+  <section class="wrap contact3" id="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Want AI that actually works? <span>Let’s talk.</span></h2>
+    <div class="contact3__links">
+      <a class="contact3__mail" href="mailto:sowmya.9507@gmail.com">sowmya.9507@gmail.com</a>
+      <div><a class="btn btn--pill" href="https://www.linkedin.com/in/sowmyarajan1703/" rel="me noopener">LinkedIn</a><a class="btn btn--pill" href="https://github.com/sowmyaarajan" rel="me noopener">GitHub</a><a class="btn btn--pill" href="resume/">Résumé</a></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= 60-second tour ================= -->
+<div class="tour" id="tour" role="region" aria-label="Guided tour" hidden>
+  <svg class="girl tour__girl" viewBox="0 0 48 64" width="40" height="53" aria-hidden="true"><path class="g-hair" d="M17.5 9.5c-4.8.6-7.6 4.6-7.4 9.6.2 4.2-1.4 7.4-3.6 9.2 4.8.4 8.8-2.2 10.2-6.6 1.2-3.6.8-7.6 2.4-10.6z"/><path class="g-limb" d="M20.6 44.2v12.6M27.4 44.2v12.6"/><path class="g-dress" d="M18.2 21.4h11.6l5.2 22.8H13z"/><path class="g-limb" d="M18.8 23.2l-5.6 9.4M29.2 23.2l5.4 6.8"/><circle class="g-skin" cx="24" cy="12" r="7.6"/><path class="g-hair" d="M16.4 12.2c-.4-5.2 3-9 7.6-9 4.4 0 7.8 3.2 7.8 7.6-2.6-.4-5.4-1.8-7-3.8-1.2 2.6-4.6 4.6-8.4 5.2z"/><circle class="g-eye" cx="27.2" cy="12.6" r=".95"/><path class="g-smile" d="M25.6 15.6c.9.7 2.1.7 3 .1"/></svg>
+  <div class="tour__body">
+    <p class="tour__k meta"><span id="tour-n">1</span> / <span id="tour-of">8</span> · 60-second tour</p>
+    <p class="tour__t" id="tour-t" aria-live="polite"></p>
+    <div class="tour__bar"><span id="tour-bar"></span></div>
+    <div class="tour__ctl">
+      <button type="button" data-tour="prev" aria-label="Previous stop">←</button>
+      <button type="button" data-tour="pause" id="tour-pause">Pause</button>
+      <button type="button" data-tour="next" aria-label="Next stop">→</button>
+      <button type="button" data-tour="sound" id="tour-sound" aria-pressed="true"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M3 8h3l4-3v10l-4-3H3z" fill="currentColor"/><path class="tour__wave" d="M13 7.5a3.5 3.5 0 0 1 0 5M15 5.5a6.5 6.5 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Sound on</span></button>
+      <button type="button" data-tour="end" class="tour__x">End tour</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= Demos (opened by the Try it buttons) ================= -->
+<dialog class="demo" id="demo-inv" aria-labelledby="demo-inv-h">
+  <div class="demo__bar"><p class="demo__title" id="demo-inv-h"><span style="--c: var(--st-ingest)">A</span>The investigation, step by step</p><button class="demo__close" type="button" data-close aria-label="Close">×</button></div>
+  <article class="inv inv--auto" id="inv-demo">
+        <div class="inv__scroll" id="inv-scroll">
+          <div class="inv__stage">
+            <div class="inv__viz">
+              <div class="inv__svg" id="inv-svg"></div>
+              <p class="inv__key" aria-hidden="true"><span><i class="k-ok"></i>checked</span><span><i class="k-def"></i>mistake</span><span><i class="k-silent"></i>silently wrong number</span><span class="meta">grouping shown schematically</span></p>
+            </div>
+            <div class="inv__side" aria-hidden="true">
+              <p class="inv__num">337</p>
+              <p class="inv__unit">parts in the invoice robot, about 1 in 10 ever checked</p>
+              <p class="inv__trail"><span>337</span><span>20</span><span>9</span><span>231</span></p>
+              <ol class="inv__log">
+                <li data-step="0"><p class="stg">01 · Problem</p><h4>337 parts. Hardly any ever checked.</h4><p>A robot that makes invoices for 37 countries had been copied from one automation tool to another. Almost nothing had been tested, and the project was stuck.</p></li>
+                <li data-step="1"><p class="stg">02 · Investigation</p><h4>Don’t just read it. Run it.</h4><p>Instead of only reading the copied code, I ran the whole robot for real on the old system it controls. Things broke. In three weeks I found and fixed 20 mistakes.</p></li>
+                <li data-step="2"><p class="stg">03 · Discovery</p><h4>20 mistakes, but only 9 kinds.</h4><p>The mistakes weren’t random. They came in 9 families, and each family was copied all over the code. Fixing them one by one would never end.</p></li>
+                <li data-step="3"><p class="stg">04 · Verification</p><h4>One family was hiding in 231 places.</h4><p>It never showed an error. It quietly put wrong amounts on invoices, and every test still said everything was fine.</p></li>
+              </ol>
+            </div>
+            <div class="inv__rail" role="group" aria-label="Jump to a step">
+              <button type="button" data-go="0">01</button><button type="button" data-go="1">02</button><button type="button" data-go="2">03</button><button type="button" data-go="3">04</button><button type="button" class="inv__play">Pause ❚❚</button>
+            </div>
+          </div>
+        </div>
+  </article>
+</dialog>
+
+<dialog class="demo" id="demo-req" aria-labelledby="demo-req-h">
+  <div class="demo__bar"><p class="demo__title" id="demo-req-h"><span style="--c: var(--st-reason)">B</span>You’re the supervisor</p><button class="demo__close" type="button" data-close aria-label="Close">×</button></div>
+  <p class="demo__intro">Pick a repair request and send it. The AI checks it, spots repeats, and waits for your decision. Made-up requests, not customer data.</p>
+          <div class="con" id="con">
+            <div class="con__top">
+              <p class="meta"><b>Try the system</b> · made-up requests, not customer data</p>
+              <button type="button" class="con__reset" id="con-reset">↺ reset</button>
+            </div>
+            <div class="con__flow">
+              <ol class="flow" aria-label="Request path">
+                <li data-node="0"><i></i><b>Request</b><span>arrives from SAP</span></li>
+                <li data-node="1"><i></i><b>Clear?</b><span>AI grades it</span></li>
+                <li data-node="2" class="is-dec"><i></i><b>Repeat?</b><span>AI compares meaning</span>
+                  <span class="flow__exit" data-node="5"><i></i><b>Returned</b></span></li>
+                <li data-node="3" class="is-human"><i></i><b>Supervisor</b><span>a person decides</span></li>
+                <li data-node="4"><i></i><b>Repair job</b><span>created in SAP</span></li>
+              </ol>
+              <span class="flow__sig" aria-hidden="true"></span>
+            </div>
+            <p class="con__status" id="con-status" aria-live="polite">Pick a request to send.</p>
+
+            <div class="con__grid">
+              <div class="con__pick" role="group" aria-labelledby="con-pick-h">
+                <p class="con__h" id="con-pick-h">Send a request</p>
+                <button type="button" class="con__req" data-req="0"><span class="meta">EN</span><b>Pump seal leaking</b></button>
+                <button type="button" class="con__req" data-req="1"><span class="meta">EN</span><b>Worn conveyor idlers</b></button>
+                <button type="button" class="con__req" data-req="2"><span class="meta">ES</span><b>Reductor pierde aceite</b></button>
+                <p class="con__hint note">try sending one twice</p>
+              </div>
+
+              <div class="notice" id="notice" aria-live="off">
+                <p class="notice__h"><span class="meta">Repair request</span><b id="n-id">—</b></p>
+                <p class="notice__txt" id="n-txt">No request in flight.</p>
+                <dl class="notice__f">
+                  <div data-f="lang"><dt>Language</dt><dd>—</dd></div>
+                  <div data-f="quality"><dt>Clear?</dt><dd>—</dd></div>
+                  <div data-f="dup"><dt>Repeat?</dt><dd>—</dd></div>
+                  <div data-f="sup"><dt>Supervisor</dt><dd>—</dd></div>
+                  <div data-f="result"><dt>Result</dt><dd>—</dd></div>
+                </dl>
+                <div class="notice__act" id="n-act" hidden></div>
+              </div>
+
+              <div class="con__queues">
+                <p class="con__h">Open repair requests</p>
+                <ul class="q" id="q-open"></ul>
+                <p class="con__h">Sent back as repeats</p>
+                <ul class="q q--ret" id="q-ret"><li class="q__empty">none yet</li></ul>
+              </div>
+            </div>
+          </div>
+</dialog>
+
+<dialog class="demo" id="demo-ha" aria-labelledby="demo-ha-h">
+  <div class="demo__bar"><p class="demo__title" id="demo-ha-h"><span style="--c: var(--st-extract)">C</span>Talk to the planning agent</p><button class="demo__close" type="button" data-close aria-label="Close">×</button></div>
+  <article class="ha" id="case-media-demo">
+        <ol class="ha__states" aria-hidden="true"><li>Brief</li><li>Agent plan</li><li class="is-human">Planner feedback</li><li>Revision</li><li>Final plan</li></ol>
+
+        <div class="ha__stage" id="ha" data-s="1">
+          <div class="ha__lane ha__lane--human">
+            <p class="ha__who"><i></i>Planner</p>
+            <div class="ha__msg" id="ha-msg">
+              <p class="ha__quote">“Move budget from print to video, keep the total.”</p>
+              <button type="button" class="btn btn--primary ha__send" id="ha-send">Send feedback <span aria-hidden="true">→</span></button>
+            </div>
+            <p class="ha__after note" hidden>The planner edits in words. The agent redoes the arithmetic.</p>
+          </div>
+
+          <div class="ha__plan">
+            <p class="ha__ver"><span class="meta">Channel plan</span><span class="ha__tag" id="ha-tag">v1 · draft</span></p>
+            <div class="ha__bar" id="ha-bar">
+              <span class="seg" data-ch="tv"><b>TV</b><em></em></span>
+              <span class="seg" data-ch="digital"><b>Digital</b><em></em></span>
+              <span class="seg" data-ch="print"><b>Print</b><em></em></span>
+              <span class="seg" data-ch="video"><b>Video</b><em></em></span>
+            </div>
+            <div class="ha__total"><span>total budget</span><span class="d">print −12 · video +12</span><b id="ha-held"><span class="lock" aria-hidden="true"></span>locked</b></div>
+            <div class="ha__cmp" role="group" aria-label="Compare versions" hidden>
+              <button type="button" data-v="1" aria-pressed="false">v1</button><button type="button" data-v="2" aria-pressed="true">v2</button>
+              <span class="meta">compare</span>
+            </div>
+            <p class="sr-only" id="ha-sr" aria-live="polite"></p>
+            <p class="ha__illus meta">Budget split is illustrative.</p>
+          </div>
+
+          <div class="ha__lane ha__lane--agent">
+            <p class="ha__who"><i></i>Agent <span class="meta">trace, simplified</span></p>
+            <ol class="ha__trace" id="ha-trace">
+              <li class="is-done">read the client brief</li>
+              <li class="is-done">pull about 9 data sources</li>
+              <li class="is-done">write a first plan, split by channel <span class="v">v1</span></li>
+            </ol>
+            <button type="button" class="ha__reset" id="ha-reset" hidden>↺ run again</button>
+          </div>
+          <span class="ha__pulse" aria-hidden="true"></span>
+        </div>
+  </article>
+</dialog>
+
+<dialog class="demo demo--tool" id="demo-tool" aria-labelledby="demo-tool-h">
+  <div class="demo__bar"><p class="demo__title" id="demo-tool-h"><span id="tool-dot"></span><b id="tool-name">Tool</b></p><button class="demo__close" type="button" data-close aria-label="Close">×</button></div>
+  <div class="tdemo" id="tdemo"></div>
+</dialog>
+
+
+<footer class="wrap footer">
+  <span>© 2026 Sowmya Rajan · Bangalore</span>
+  <span>Built by hand in HTML, CSS and SVG. Hosted on GitHub Pages.</span>
+</footer>
+
+<script src="assets/js/main.js?v=v5" defer></script>
+<script src="assets/js/hop.js?v=v5c" defer></script>
+<script src="assets/js/fieldwork.js?v=v5" defer></script>
+<script src="assets/js/demos.js?v=v5" defer></script>
+<script src="assets/js/tour.js?v=v7" defer></script>
+</body>
+</html>

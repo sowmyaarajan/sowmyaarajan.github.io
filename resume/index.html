@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résumé · Sowmya Rajan</title>
+<meta name="description" content="Résumé of Sowmya Rajan, Senior Forward Deployed Engineer: applied AI and agentic automation.">
+<link rel="canonical" href="https://sowmyaarajan.github.io/resume/">
+<script>try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0d12'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%234fd1b8' text-anchor='middle'%3ESR%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    color-scheme: dark;
+    --ground: #0a0d12; --paper: #12171e; --ink: #ece9e2; --ink-2: #b9bec6; --muted: #8a9099; --rule: #283040; --accent: #4fd1b8; --accent-2: #8fa6ff;
+    --font: "Geist", "Segoe UI", system-ui, sans-serif; --mono: "Geist Mono", ui-monospace, Consolas, monospace;
+  }
+  :root[data-theme="light"] { color-scheme: light; --ground: #f4f1ea; --paper: #ffffff; --ink: #16181c; --ink-2: #3c4250; --muted: #646a75; --rule: #d9d4c8; --accent: #0e7c6a; --accent-2: #2b4fe0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font: 400 15px/1.55 var(--font); -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(900px 600px at 90% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 65%); background-repeat: no-repeat; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 4px; }
+  .bar { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 12px clamp(16px, 5vw, 48px); background: color-mix(in srgb, var(--ground) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+  .bar a.back { text-decoration: none; font-weight: 600; }
+  .bar .actions { display: flex; gap: 8px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 42px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--ink); font: 600 14px var(--font); text-decoration: none; cursor: pointer; }
+  .btn:hover { border-color: var(--ink); }
+  .btn--primary { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+  .sheet { max-width: 860px; margin: 32px auto 64px; padding: 48px 56px 52px; background: var(--paper); border: 1px solid var(--rule); border-radius: 18px; display: grid; gap: 22px; box-shadow: 0 40px 90px -60px rgba(0,0,0,.8); }
+  header { display: grid; gap: 6px; }
+  h1 { margin: 0; font-size: 38px; line-height: 1; letter-spacing: -.04em; font-weight: 700; }
+  .headline { margin: 0; font-size: 17px; font-weight: 500; color: var(--accent); }
+  .contact { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font: 500 13px var(--mono); color: var(--ink-2); }
+  .contact a { text-decoration: none; }
+  .contact a:hover { color: var(--accent-2); text-decoration: underline; }
+  section { display: grid; gap: 10px; }
+  h2 { margin: 0; font: 600 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+  p { margin: 0; }
+  .summary { color: var(--ink-2); font-size: 15.5px; }
+  .skills { display: grid; gap: 4px; color: var(--ink-2); }
+  .skills b { color: var(--ink); font-weight: 600; }
+  .job { display: grid; gap: 6px; }
+  .job + .job { margin-top: 10px; }
+  .line { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 16px; }
+  .line h3 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
+  .line .org { font-weight: 500; color: var(--ink-2); }
+  .when { font: 500 12.5px var(--mono); color: var(--muted); white-space: nowrap; }
+  .lead { color: var(--ink-2); font-style: italic; }
+  .client { margin: 4px 0 0; font-weight: 600; font-size: 14.5px; }
+  .client span { font-weight: 400; color: var(--muted); }
+  ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+  li { color: var(--ink-2); }
+  li b { color: var(--ink); font-weight: 600; }
+  .compact { display: grid; gap: 9px; }
+  .compact .line h3 { font-size: 15px; }
+  .compact p { color: var(--ink-2); }
+  @media (max-width: 680px) {
+    .sheet { margin: 12px; padding: 26px 20px 30px; border-radius: 14px; }
+    h1 { font-size: 30px; }
+    .bar .btn:not(.btn--primary) { display: none; }
+  }
+  @page { size: A4; margin: 11mm 13mm; }
+  @media print {
+    :root, :root[data-theme="light"] { color-scheme: light; --ground: #fff; --paper: #fff; --ink: #111; --ink-2: #2b313b; --muted: #5a6270; --rule: #cfd4dc; --accent: #0b6b5b; --accent-2: #1f3a8f; }
+    body { background: #fff; font-size: 9.8pt; line-height: 1.36; }
+    .bar { display: none; }
+    .sheet { margin: 0; padding: 0; border: 0; box-shadow: none; max-width: none; gap: 11px; border-radius: 0; }
+    h1 { font-size: 21pt; } .headline { font-size: 11pt; } .contact { font-size: 8.6pt; }
+    h2 { font-size: 8.4pt; padding-bottom: 2px; } section { gap: 6px; }
+    .line h3 { font-size: 10.6pt; } .when { font-size: 8.6pt; } .client { font-size: 10pt; margin-top: 1px; }
+    ul { gap: 1px; } .job { gap: 3px; } .job + .job { margin-top: 4px; } .compact { gap: 4px; }
+    li, .compact > div { break-inside: avoid; } h2, .line, .client { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a class="back" href="../">← Sowmya Rajan</a>
+  <div class="actions">
+    <button class="btn" type="button" onclick="window.print()">Print</button>
+    <a class="btn btn--primary" href="Sowmya_Rajan_Resume.pdf" download>Download PDF</a>
+  </div>
+</div>
+
+<main class="sheet">
+  <header>
+    <h1>Sowmya Rajan</h1>
+    <p class="headline">Senior Forward Deployed Engineer · Applied AI and Agentic Automation</p>
+    <p class="contact">
+      <span>Bangalore, India</span>
+      <a href="mailto:sowmya.9507@gmail.com">sowmya.9507@gmail.com</a>
+      <a href="https://www.linkedin.com/in/sowmyarajan1703/">linkedin.com/in/sowmyarajan1703</a>
+      <a href="https://github.com/sowmyaarajan">github.com/sowmyaarajan</a>
+      <a href="https://sowmyaarajan.github.io">sowmyaarajan.github.io</a>
+    </p>
+  </header>
+
+  <section aria-labelledby="h-sum">
+    <h2 id="h-sum">Summary</h2>
+    <p class="summary">Forward deployed engineer with 5 years at UiPath and a research background in data science. I design and build agentic automation that combines LLM agents, document AI, deterministic automation and human-in-the-loop review, and I work inside customer teams from architecture to deployment. I have delivered for 15+ enterprise customers in insurance, banking, mining, shipping, media and retail. MSc in Digital Sciences, Université Paris Descartes.</p>
+  </section>
+
+  <section aria-labelledby="h-skills">
+    <h2 id="h-skills">Skills</h2>
+    <div class="skills">
+      <p><b>AI and LLMs:</b> LLM agents, RAG, Model Context Protocol (MCP), agent memory, human-in-the-loop design, prompt engineering, Claude, OpenAI, Gemini, LangChain, CrewAI, Hugging Face</p>
+      <p><b>Document AI and ML:</b> UiPath IXP and Document Understanding, OCR, classification and extraction, computer vision (YOLO, Detectron2), scikit-learn</p>
+      <p><b>UiPath platform:</b> Agent Builder, Coded Agents, Maestro (BPMN, Case Management), Data Fabric, Orchestrator, Action Center, Coded Apps, Communications Mining, AI Center, Studio</p>
+      <p><b>Engineering:</b> Python, FastAPI, TypeScript, React, Next.js, Node.js, SQL (SQL Server, Snowflake, dbt), REST APIs, SAP integration, Git</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-exp">
+    <h2 id="h-exp">Experience</h2>
+    <article class="job">
+      <div class="line"><h3>Senior Forward Deployed Engineer <span class="org">· UiPath, Bengaluru</span></h3><span class="when">Jan 2025 – Present</span></div>
+      <p class="lead">Design and build agentic automation for enterprise customers, combining AI agents, LLMs, deterministic automation, enterprise systems and human review.</p>
+
+      <p class="client">Global media agency <span>· agentic media planning</span></p>
+      <ul>
+        <li>Technical advisor to the agency and its implementation partner on an AI system that drafts channel-level media budget plans from a client brief and about nine data sources, then revises them from the planner’s plain-language feedback.</li>
+        <li>Wrote the proposed architecture, the technical annex and an 18-page plain-language explainer for business and governance stakeholders, and laid out the architecture options the sponsor chose between.</li>
+      </ul>
+
+      <p class="client">Global mining company <span>· AI work-order automation</span></p>
+      <ul>
+        <li>Designed AI triage for SAP maintenance notifications: LLM scoring of description quality, <b>semantic duplicate detection</b> with tiered reject, flag and approve thresholds, and a human-in-the-loop supervisor approval step, over English and Spanish data.</li>
+        <li>Took three of five process phases through build into UAT across <b>7 releases</b>, and built and deployed a React and TypeScript reviewer dashboard for the customer’s team.</li>
+        <li>Rebuilt the process and solution design documents from code walkthroughs, and led the architecture deep dive and technical review.</li>
+      </ul>
+
+      <p class="client">Global shipping company <span>· migration recovery</span></p>
+      <ul>
+        <li>Recovered a stalled migration between automation platforms for invoicing across <b>37 countries</b>, where only 10–14% of 337 machine-translated components had been verified.</li>
+        <li><b>Fixed 20 defects in 3 weeks</b> and grouped them into 9 defect classes, including a <b>silent data-corruption bug with 231 instances</b> that would have produced wrong invoice amounts without failing tests.</li>
+      </ul>
+
+      <p class="client">Internal accelerators</p>
+      <ul>
+        <li>Shipped <b>8 accelerators in 4 months</b>, among them IXP Wrapper, which turns 15+ file types into structured JSON and ships as a FastAPI service and a Studio activity, and VisionAI, which compares extraction results across Claude, OpenAI and Gemini.</li>
+        <li>Built internal reference implementations of <b>agent memory</b> (an agent escalates to a person, then answers repeat requests from memory) and <b>Maestro case management</b>, each with a full implementation guide. Delivered two working Hackweek 2026 demos.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="line"><h3>Applied Scientist <span class="org">· UiPath, Bengaluru</span></h3><span class="when">Nov 2021 – Dec 2024</span></div>
+      <ul>
+        <li>Delivered <b>Document Understanding, Communications Mining and AI Center</b> solutions for 15+ enterprise customers in insurance, banking, retail, consumer goods, lighting and aviation.</li>
+        <li>Built document-vision models for hard extraction cases: signature, seal and table detection (YOLO, Detectron2), handwriting extraction, layout parsing and redaction.</li>
+        <li>Built early LLM automation: GPT-based activities and prompts for UiPath workflows, LangChain integrations, coded agents, and an LLM reporting agent for an insurance customer.</li>
+        <li>Spoke on Communications Mining and generative AI at UiPath community events, including GenAI Automation Pathshala and the UiPath Adelaide Chapter.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="line"><h3>AI Data Specialist, Bixby <span class="org">· Samsung R&amp;D Institute, Bengaluru</span></h3><span class="when">Dec 2017 – Aug 2019</span></div>
+      <ul>
+        <li>Annotated and curated conversational training data for the NLP models behind <b>Bixby</b>, Samsung’s virtual assistant, and wrote specifications for new conversational AI capabilities.</li>
+        <li>Prepared release builds of NLP models with Python and Bash scripts on the backend.</li>
+        <li>Gathered and preprocessed ground-truth image data to train the visual intelligence model behind <b>Bixby Vision</b>.</li>
+        <li>Received a Spot Award from Samsung R&amp;D Institute for outstanding contribution to vocabulary review.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section aria-labelledby="h-proj">
+    <h2 id="h-proj">Projects · github.com/sowmyaarajan</h2>
+    <div class="compact">
+      <div><div class="line"><h3>Automation Cortex</h3><span class="when">Python · FastAPI · Next.js · coded agents</span></div>
+        <p>Hackweek 2026 build: an intelligence layer over a UiPath automation estate. A static parser turns workflow files into a dependency “genome” for each automation, which drives fragility scores, the blast radius of a proposed change, and generated SOPs. A coded agent challenges design decisions as an adversarial consultant.</p></div>
+      <div><div class="line"><h3>FlowLens</h3><span class="when">TypeScript · Electron · coded agents</span></div>
+        <p>Desktop assistant that reads on-screen context such as copied errors and the active app, routes it through a UiPath coded agent, and offers the right automation on a hotkey. It remembers past fixes and spots repetitive work worth automating.</p></div>
+      <div><div class="line"><h3>Clausage Bar</h3><span class="when">Python · Windows tray app</span></div>
+        <p>Windows tray monitor for Claude usage: the current session, the weekly window and monthly credits at a glance, with alerts at 50, 75 and 100%. Unofficial, and says so when its data source changes.</p></div>
+      <div><div class="line"><h3>HalwaShare</h3><span class="when">Node.js · WebRTC</span></div>
+        <p>Send files of any size, and text, straight to people nearby. Nothing is uploaded or stored: files stream device to device over WebRTC, with a server relay when a direct connection is blocked.</p></div>
+      <div><div class="line"><h3>RSNA Pneumonia Detection</h3><span class="when">Python · YOLO · computer vision</span></div>
+        <p>Deep-learning model that detects and localises lung opacities in chest X-rays with bounding boxes.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-research">
+    <h2 id="h-research">Research and internships</h2>
+    <div class="compact">
+      <div><div class="line"><h3>Web Developer Intern <span class="org">· The Alan Turing Institute</span></h3><span class="when">Apr 2021 – Jul 2021</span></div>
+        <p>Built the user interface for AutSPACEs, an open-source citizen-science platform for the autism community, with Django and Docker. Presented the project at the CC Global Summit 2021.</p></div>
+      <div><div class="line"><h3>Cyber Security Researcher Intern <span class="org">· SAP Labs France, Mougins</span></h3><span class="when">Nov 2020 – Apr 2021</span></div>
+        <p>Retrained NLP models (fastText, Gensim) for SAP Credential Digger, an open-source scanner that finds leaked credentials in GitHub code, and wrote client-side Git hooks that run the scans through Bash.</p></div>
+      <div><div class="line"><h3>Research Assistant Intern <span class="org">· Media Neuroscience Lab, UC Santa Barbara, USA</span></h3><span class="when">Aug 2020 – Feb 2021</span></div>
+        <p>Built NLP pipelines (spaCy, NLTK, pandas) over 42,306 movie plot summaries to link character morality to story performance, and co-submitted an abstract on the work to the 71st ICA Conference.</p></div>
+      <div><div class="line"><h3>Data Analyst <span class="org">· Direction du numérique pour l’éducation and CRI, Paris</span></h3><span class="when">Feb 2020 – Jul 2020</span></div>
+        <p>Analysed real-time logs from the M@gistère platform with Python and SQL to measure how well teachers’ online professional development works.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-edu">
+    <h2 id="h-edu">Education</h2>
+    <div class="compact">
+      <div><div class="line"><h3>AIRE Master in Digital Sciences <span class="org">· Université Paris Descartes (now Université Paris Cité), France</span></h3><span class="when">2019 – 2021</span></div>
+        <p>AI and machine learning track. Awarded a €20,000 EURIP Graduate School scholarship for academic merit.</p></div>
+      <div class="line"><h3>B.E., Electrical and Electronics Engineering <span class="org">· Visvesvaraya Technological University, India</span></h3><span class="when">2013 – 2017</span></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
